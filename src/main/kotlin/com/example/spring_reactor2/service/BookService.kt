@@ -49,13 +49,14 @@ class BookService (
             )
     }
 
-    fun deleteBook(bookId: Long): Mono<Void>{
-        return this.findBookById(bookId)
-            .flatMap { book ->
-                bookRepository.deleteById(bookId)
-//                inventoryRepository.deleteByBookId(bookId)
-            }
-        .switchIfEmpty(Mono.error(BookDoesNotExistException(bookId)))
+    fun deleteBook(bookId: Long): Mono<Boolean>{
+        return bookRepository.deleteBookById(bookId)
+//        return this.findBookById(bookId)
+//            .flatMap { book ->
+//                bookRepository.deleteById(bookId)
+////                inventoryRepository.deleteByBookId(bookId)
+//            }
+//        .switchIfEmpty(Mono.error(BookDoesNotExistException(bookId)))
     }
 
     fun getAllBooks(): Flux<Book> {

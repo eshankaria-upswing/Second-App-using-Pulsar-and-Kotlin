@@ -46,6 +46,15 @@ class BookController (val bookService: BookService) {
     @DeleteMapping("{bookId}")
     fun deleteBookById(@PathVariable bookId: Long): Mono<ResponseEntity<Void>> {
         return bookService.deleteBook(bookId)
-            .map { ResponseEntity.ok().build() }
+            .map { deleted ->
+                if(deleted)
+                {
+                    ResponseEntity.noContent().build()
+                }
+                else
+                {
+                    ResponseEntity.notFound().build()
+                }
+            }
     }
 }

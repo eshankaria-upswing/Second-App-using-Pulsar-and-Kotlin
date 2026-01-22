@@ -8,4 +8,5 @@ import reactor.core.publisher.Mono
 @Repository
 interface BookRepository : ReactiveCrudRepository<Book, Long> {
     fun findByTitleAndAuthor(title: String, author: String): Mono<Book>;
+    fun deleteBookById(id: Long): Mono<Boolean>
 }

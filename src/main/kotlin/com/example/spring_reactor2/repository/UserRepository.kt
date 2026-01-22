@@ -8,4 +8,5 @@ import reactor.core.publisher.Mono
 @Repository
 interface UserRepository : ReactiveCrudRepository<User, Long> {
     fun findByName(name: String): Mono<User>
+    fun deleteUserById(Id: Long): Mono<Boolean>
 }

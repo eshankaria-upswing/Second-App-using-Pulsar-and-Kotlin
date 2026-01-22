@@ -34,8 +34,16 @@ class UserController(
     @DeleteMapping("{userId}")
     fun deleteUser(@PathVariable userId: Long): Mono<ResponseEntity<Void>> {
         return userService.deleteUser(userId)
-        .map { ResponseEntity.ok(it) }
-            .defaultIfEmpty(ResponseEntity.notFound().build())
+            .map { deleted ->
+                if(deleted)
+                {
+                    ResponseEntity.noContent().build()
+                }
+                else
+                {
+                    ResponseEntity.notFound().build()
+                }
+            }
     }
 
     @GetMapping("/{userId}")

@@ -20,8 +20,8 @@ class UserService (private val userRepository: UserRepository) {
 //        return userRepository.save(user);
     }
 
-    fun deleteUser(id: Long): Mono<Void> {
-        return this.userRepository.deleteById(id)
+    fun deleteUser(id: Long): Mono<Boolean> {
+        return this.userRepository.deleteUserById(id)
     }
 
     fun getUserById(id: Long): Mono<User> {
