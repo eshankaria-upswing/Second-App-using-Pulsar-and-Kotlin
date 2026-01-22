@@ -7,6 +7,14 @@ spring:
     username: reactive_user2
     password: reactive_pass2
 
+  pulsar:
+    client:
+      service-url: pulsar://localhost:6650
+
 logging:
   level:
-    org.springframework.r2dbc: DEBUG
+    root: INFO
+    org.springframework: INFO
+    com.example.spring_reactor2: DEBUG
+    org.springframework.r2dbc: INFO
+    org.apache.pulsar: INFO

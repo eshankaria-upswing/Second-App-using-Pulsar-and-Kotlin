@@ -19,8 +19,6 @@ class BookRequestService (
     }
 
     fun addBookRequest(bookId: Long, userId: Long) : Mono<Void> {
-        println(bookId)
-        println(userId)
         return this.findByBookIdAndUserId(bookId, userId)
             .flatMap<Void> { _ ->
                 Mono.error(BookRequestExists(bookId, userId))
