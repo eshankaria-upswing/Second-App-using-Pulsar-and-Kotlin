@@ -34,6 +34,8 @@ dependencies {
 	testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test")
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 	implementation("org.springframework.boot:spring-boot-starter-pulsar")
+	implementation("org.flywaydb:flyway-database-postgresql")
+	implementation("org.flywaydb:flyway-core")
 }
 
 kotlin {

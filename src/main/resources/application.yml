@@ -1,6 +1,12 @@
 spring:
-  application:
-    name: spring-reactive-kotlin
+#  application:
+#    name: spring-reactive-kotlin
+
+  flyway:
+    enabled: true
+    url: jdbc:postgresql://localhost:5433/reactive_db2
+    user: reactive_user2
+    password: reactive_pass2
 
   r2dbc:
     url: r2dbc:postgresql://localhost:5433/reactive_db2
@@ -18,3 +24,5 @@ logging:
     com.example.spring_reactor2: DEBUG
     org.springframework.r2dbc: INFO
     org.apache.pulsar: INFO
+    org:
+      flywaydb=DEBUG:

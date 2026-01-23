@@ -19,8 +19,8 @@ services:
     ports:
       - "6650:6650"   # Pulsar binary protocol
       - "8081:8080"   # Pulsar Admin / UI
-    volumes:
-      - pulsar-data:/pulsar/data
+#    volumes:
+#      - pulsar-data:/pulsar/data
     restart: unless-stopped
 
 volumes:
